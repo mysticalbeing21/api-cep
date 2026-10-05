@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frete por CEP – Uninassau</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Frete por CEP</h1>
+  <p class="sub">Informe o CEP de destino e veja a distância a partir da Uninassau e o valor estimado de uma corrida de Uber Moto.</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="cep">CEP de destino</label>
+      <input id="cep" inputmode="numeric" maxlength="9" placeholder="00000-000" autocomplete="postal-code">
+    </div>
+    <details>
+      <summary>Ajustar origem e tarifas</summary>
+      <div class="field">
+        <label for="origem">Endereço da Uninassau (origem)</label>
+        <input id="origem" value="Uninassau Graças, Recife, PE">
+      </div>
+      <div class="row">
+        <div><label for="base">Tarifa base (R$)</label><input id="base" type="number" step="0.1" value="3.50"></div>
+        <div><label for="km">Por km (R$)</label><input id="km" type="number" step="0.1" value="1.60"></div>
+        <div><label for="min">Por minuto (R$)</label><input id="min" type="number" step="0.05" value="0.35"></div>
+      </div>
+    </details>
+    <button id="calc">Calcular frete</button>
+    <div id="erro" role="alert"></div>
+  </div>
+
+  <div class="card" id="res">
+    <div class="total">Frete estimado<strong id="total"></strong></div>
+    <dl>
+      <dt>Endereço</dt><dd id="end"></dd>
+      <dt>Distância (rota)</dt><dd id="dist"></dd>
+      <dt>Tempo estimado</dt><dd id="tempo"></dd>
+    </dl>
+    <small>Valores estimados: o Uber não oferece API pública de preços, então o cálculo usa tarifa base + km + minutos (editáveis acima). O valor real varia com a demanda.</small>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
